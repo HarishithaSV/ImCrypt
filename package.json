@@ -1,12 +1,11 @@
 {
   "name": "imcrypt",
+  "version": "1.0.0",
   "description": "An image encryption node-js cli",
-  "version": "1.0.1",
-  "license": "MIT",
-  "bin": {
-    "imcrypt": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"./**/*.{js,json}\""
   },
-  "author": "theninza <niks.a3198@gmail.com> (https://theninza.me)",
   "keywords": [
     "imcrypt",
     "theninza",
@@ -17,12 +16,10 @@
     "nodejs",
     "cli"
   ],
-  "files": [
-    "index.js",
-    "utils"
-  ],
-  "scripts": {
-    "format": "prettier --write \"./**/*.{js,json}\""
+  "author": "theninza <niks.a3198@gmail.com> (https://theninza.me)",
+  "license": "MIT",
+  "bin": {
+    "imcrypt": "index.js"
   },
   "dependencies": {
     "chalk": "^5.0.0",
@@ -38,7 +35,6 @@
   "devDependencies": {
     "prettier": "^2.5.1"
   },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheNinza/imcrypt.git"
