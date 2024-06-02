@@ -1,103 +1,50 @@
-Imcrypt
-
-A CLI tool for encrypting and decrypting images securely.
-
-GitHub package.json version  
-GitHub Repo stars  
-npm
-Tech Stack
-
-Node  
-Overview
-
-imcrypt is a command-line tool that uses XOR encryption to encrypt and decrypt PNG, JPG, and JPEG images. It provides a secure method to encrypt images, making them unreadable without the key.
-Preview
-
-CLI Preview
-Installation
-
-To install imcrypt, run:
-
-bash
-
-npm install -g imcrypt
-
-Usage
 Encrypting an Image
 
-Encrypt an image using the -e flag, specifying the input image file, and optionally the output image and key file names.
+To encrypt an image, use the following command:
 
 bash
 
-imcrypt -e <input_image_path> -i <output_image_file_name> -p <output_key_file_name>
+imcrypt --encrypt <path-to-image> --outputImageFileName <output-image-file-name> --outputKeyFileName <output-key-file-name>
 
-Example:
+    <path-to-image>: The path to the image you want to encrypt.
+    --outputImageFileName (-i): The name of the output encrypted image file. This is optional; if not provided, it will default to <image-name>_encrypted.<extension>.
+    --outputKeyFileName (-p): The name of the output key file. This is optional; if not provided, it will default to <image-name>_key.txt.
+
+Example
+
+Encrypt an image named myImage.png and save the encrypted image as myEncryptedImage.png with the key saved as myKey.txt:
 
 bash
 
-imcrypt -e myImage.png -i encryptedImage.png -p keyFile.txt
+imcrypt --encrypt myImage.png --outputImageFileName myEncryptedImage.png --outputKeyFileName myKey.txt
 
 Decrypting an Image
 
-Decrypt an encrypted image using the -d flag, specifying the input encrypted image file, the key file, and optionally the output image file name.
+To decrypt an image, use the following command:
 
 bash
 
-imcrypt -d <input_encrypted_image_path> -k <key_file_path> -i <output_image_file_name>
+imcrypt --decrypt <path-to-encrypted-image> --key <path-to-key-file> --outputImageFileName <output-image-file-name>
 
-Example:
+    <path-to-encrypted-image>: The path to the encrypted image you want to decrypt.
+    --key (-k): The path to the key file used for decryption.
+    --outputImageFileName (-i): The name of the output decrypted image file. This is optional; if not provided, it will default to <image-name>_decrypted.<extension>.
+
+Example
+
+Decrypt an encrypted image named myEncryptedImage.png using the key myKey.txt and save the decrypted image as myDecryptedImage.png:
 
 bash
 
-imcrypt -d encryptedImage.png -k keyFile.txt -i decryptedImage.png
+imcrypt --decrypt myEncryptedImage.png --key myKey.txt --outputImageFileName myDecryptedImage.png
 
 Options
 
-    -e, --encrypt: The image file to encrypt.
-    -d, --decrypt: The encrypted image file to decrypt.
-    -i, --outputImageFileName: Specify the output image file name.
-    -p, --outputKeyFileName: Specify the output key file name.
-    -k, --key: The key file to use for decryption.
-    -c, --clear: Clear the console after execution.
-    --noClear: Do not clear the console after execution.
-    -v, --version: Print CLI version.
-
-Examples
-Encrypting an Image
-
-bash
-
-imcrypt -e myImage.png -i encryptedImage.png -p keyFile.txt
-
-Decrypting an Image
-
-bash
-
-imcrypt -d encryptedImage.png -k keyFile.txt -i decryptedImage.png
-
-Additional Commands
-Help
-
-Print help information.
-
-bash
-
-imcrypt help
-
-Output
-
-After each operation, imcrypt provides detailed feedback on the status of the operation:
-
-    Success messages: Operation completed successfully.
-    Warning messages: Incorrect flag combinations or invalid file paths.
-    Error messages: Critical issues preventing the operation from completing.
-
-Limitations
-
-While encryption and decryption are effective on PNG images, JPEG and JPG images may experience slight pixel changes due to the lossy nature of those formats.
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-Author
-
-    theninza
+    --encrypt, -e: Path to the image to encrypt.
+    --decrypt, -d: Path to the image to decrypt.
+    --outputImageFileName, -i: Output image file name.
+    --outputKeyFileName, -p: Output key file name.
+    --key, -k: Path to the key file for decryption.
+    --clear, -c: Clear the console.
+    --version, -v: Print CLI version.
+    --help: Print help info.
