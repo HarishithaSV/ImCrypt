@@ -17,23 +17,20 @@ const flags = cli.flags;
 const { clear } = flags;
 
 (async () => {
-	init({ clear });
+  init({ clear });
 
-	input.includes(`help`) && cli.showHelp(0);
-	// check if encrypt is present in flags object
-	if (flags.encrypt) {
-		await encrypt(flags);
-	} else if (flags.decrypt) {
-		await decrypt(flags);
-	}
+  input.includes('help') && cli.showHelp(0);
 
-	// footer to show when the program is finished
+  if (flags.encrypt) {
+    await encrypt(flags);
+  } else if (flags.decrypt) {
+    await decrypt(flags);
+  }
 
-	const chalk = (await import(`chalk`)).default;
+  const chalk = (await import('chalk')).default;
 
-	// print Give it a star on github: https://github.com/theninza/imcrypt with chalk and bgMagenta
-	console.log(
-		chalk.bgMagenta(` Give it a star on github: `) +
-			chalk.bold(` https://github.com/theninza/imcrypt `)
-	);
+  console.log(
+    chalk.bgMagenta(' Give it a star on github: ') +
+      chalk.bold(' https://github.com/theninza/imcrypt ')
+  );
 })();
